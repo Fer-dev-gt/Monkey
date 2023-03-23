@@ -16,6 +16,7 @@ public class Animacion extends JPanel implements Runnable {
 
     public void start() {
         if (animationThread == null) {
+            System.out.println("Iniciando Simulacion");
             animationThread = new Thread(this);
             isRunning = true;
             animationThread.start();
@@ -40,8 +41,10 @@ public class Animacion extends JPanel implements Runnable {
                 circleThread.start();
                 try {
                     circleThread.join();
+                    System.out.println("FUNCIONO, Iteracion #" + i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
+                    System.out.println("no funciono");
                 }
                 remove(circle);
             }
