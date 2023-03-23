@@ -5,9 +5,9 @@ import java.util.Random;
 
 public class Animacion extends JPanel implements Runnable {
 
-    private int numCircles;
-    private Thread animationThread;
+    private final int numCircles;
     private boolean isRunning;
+    private Thread animationThread;
 
     public Animacion(int numCircles) {
         this.numCircles = numCircles;
@@ -42,6 +42,7 @@ public class Animacion extends JPanel implements Runnable {
                 try {
                     circleThread.join();
                     System.out.println("FUNCIONO, Iteracion #" + i);
+                    if(i== 30){isRunning = false;}
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     System.out.println("no funciono");
@@ -71,6 +72,14 @@ public class Animacion extends JPanel implements Runnable {
             size = 50;
             color = Color.RED;
         }
+        
+        public void stop() {
+            if (animationThread != null) {
+                isRunning = false;
+                animationThread.interrupt();
+                animationThread = null;
+            }
+        }
 
         @Override
         public void run() {
@@ -90,13 +99,15 @@ public class Animacion extends JPanel implements Runnable {
                         break;
                 }
                 try {
-                    Thread.sleep(random.nextInt(500) + 500);
+                    Thread.sleep(random.nextInt(5) + 5);
+                    if(numCircles == 30){
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }
-
+        
         @Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);

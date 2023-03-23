@@ -1,6 +1,8 @@
 package Paneles;
 
 import Clases.Animacion;
+import Clases.Pelotitas;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class MenuInicial extends javax.swing.JFrame {
@@ -14,8 +16,9 @@ public class MenuInicial extends javax.swing.JFrame {
     private int costoEmpaquetado;
     private int costoSalida;
     
+    Pelotitas bolita1;
+    PanelSimulacion panelSimulacion = new PanelSimulacion();
     
-    PanelSimulacion bolitas = new PanelSimulacion();
     
     public MenuInicial() {
         initComponents();
@@ -52,7 +55,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        iniciarSimulacion = new javax.swing.JButton();
         simulacion = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,14 +100,14 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel8.setText("EMPAQUETADO");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 307, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Kohinoor Bangla", 2, 13)); // NOI18N
-        jButton1.setText("Iniciar Simulación");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        iniciarSimulacion.setFont(new java.awt.Font("Kohinoor Bangla", 2, 13)); // NOI18N
+        iniciarSimulacion.setText("Iniciar Simulación");
+        iniciarSimulacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                iniciarSimulacionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 444, -1, -1));
+        getContentPane().add(iniciarSimulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 444, -1, -1));
 
         javax.swing.GroupLayout simulacionLayout = new javax.swing.GroupLayout(simulacion);
         simulacion.setLayout(simulacionLayout);
@@ -122,26 +125,28 @@ public class MenuInicial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void iniciarSimulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSimulacionActionPerformed
         try {
-            tiempoInvetario = Integer.parseInt(tiempoInvetariotxt.getText());
+            /*tiempoInvetario = Integer.parseInt(tiempoInvetariotxt.getText());
             tiempoProduccion = Integer.parseInt(tiempoProducciontxt.getText());
             tiempoEmpaquetado = Integer.parseInt(tiempoEmpaquetadotxt.getText());
             tiempoSalida = Integer.parseInt(tiempoSalidatxt.getText());
             costoInvetario = Integer.parseInt(costoInvetariotxt.getText());
             costoProduccion = Integer.parseInt(costoProducciontxt.getText());
             costoEmpaquetado = Integer.parseInt(costoEmpaquetadotxt.getText());
-            costoSalida = Integer.parseInt(costoSalidatxt.getText());
-            cambiarPanel(bolitas);
-            Animacion panel = new Animacion(30);
-            panel.start();
+            costoSalida = Integer.parseInt(costoSalidatxt.getText());*/
+            cambiarPanel(panelSimulacion);
+            panelSimulacion.coordenadasPaneles();
+            
+            //Animacion panel = new Animacion(30);
+            //panel.start();
+            
        } catch (NumberFormatException noEsNumero) {
             JOptionPane.showMessageDialog(null, "ERROR: Todos los campos tienen que ser números enteros, no decimales");
             System.out.println("ERROR: Todos los campos tienen que ser números enteros, no decimales");
        }        
         
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_iniciarSimulacionActionPerformed
 
 
 
@@ -150,7 +155,7 @@ public class MenuInicial extends javax.swing.JFrame {
     private javax.swing.JTextField costoInvetariotxt;
     private javax.swing.JTextField costoProducciontxt;
     private javax.swing.JTextField costoSalidatxt;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton iniciarSimulacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
