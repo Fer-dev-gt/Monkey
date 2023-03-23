@@ -63,9 +63,9 @@ public class Animacion extends JPanel implements Runnable {
 
         public Circle(int maxX, int maxY) {
             random = new Random();
-            x = random.nextInt(maxX);
-            y = random.nextInt(maxY);
-            size = random.nextInt(50) + 50;
+            x = 10;
+            y = 10;
+            size = 50;
             color = Color.RED;
         }
 

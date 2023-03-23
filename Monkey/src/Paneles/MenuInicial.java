@@ -1,5 +1,6 @@
 package Paneles;
 
+import Clases.Animacion;
 import javax.swing.JOptionPane;
 
 public class MenuInicial extends javax.swing.JFrame {
@@ -65,6 +66,7 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel2.setText("Costo(Q/seg)");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 134, -1, -1));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 51));
         jLabel3.setFont(new java.awt.Font("Noto Sans Myanmar", 2, 14)); // NOI18N
         jLabel3.setText("Tiempo (seg)");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 134, -1, -1));
@@ -131,6 +133,8 @@ public class MenuInicial extends javax.swing.JFrame {
             costoEmpaquetado = Integer.parseInt(costoEmpaquetadotxt.getText());
             costoSalida = Integer.parseInt(costoSalidatxt.getText());
             cambiarPanel(bolitas);
+            Animacion panel = new Animacion(30);
+            panel.start();
        } catch (NumberFormatException noEsNumero) {
             JOptionPane.showMessageDialog(null, "ERROR: Todos los campos tienen que ser números enteros, no decimales");
             System.out.println("ERROR: Todos los campos tienen que ser números enteros, no decimales");
