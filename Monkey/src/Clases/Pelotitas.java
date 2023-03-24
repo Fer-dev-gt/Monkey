@@ -4,15 +4,19 @@ import java.awt.Color;
 import java.awt.Component;
 import static java.lang.Thread.sleep;
 import javax.swing.JPanel;
-import javax.swing.Timer;
 
 public class Pelotitas extends Thread {
-
-    private Color color;
+    
     private int posicionX;
     private int posicionY;
     private int tiempo;
+    private Color color;
     private JPanel bolita;
+    
+    
+    public Pelotitas(JPanel panel) {
+        this.bolita = panel;
+    }
 
     public Pelotitas(Color color, int posicionX, int posicionY, int tiempo) {
         this.color = color;
@@ -41,7 +45,6 @@ public class Pelotitas extends Thread {
                     Thread.sleep(1);
                 }
             }
-            
             // Mueve los cuadrados en referencia a Y
             if (this.bolita.getY() > this.posicionY) {
                 for (int i = this.bolita.getY(); i > this.posicionY; i--) {
@@ -54,11 +57,12 @@ public class Pelotitas extends Thread {
                     Thread.sleep(1);
                 }
             }
+            
         } catch (InterruptedException e) {
             // Handle the exception if the sleep is interrupted
         }
     }
-
+    
     public Color getColor() {
         return color;
     }

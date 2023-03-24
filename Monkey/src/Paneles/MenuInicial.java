@@ -135,9 +135,7 @@ public class MenuInicial extends javax.swing.JFrame {
             costoSalida = Integer.parseInt(costoSalidatxt.getText());*/
             cambiarPanel(panelSimulacion);
             panelSimulacion.coordenadasPaneles();
-            panelSimulacion.iniciarSimulacion();
-            //Animacion panel = new Animacion(30);
-            //panel.start();
+            panelSimulacion.crearPelotitas();
             
        } catch (NumberFormatException noEsNumero) {
             JOptionPane.showMessageDialog(null, "ERROR: Todos los campos tienen que ser números enteros, no decimales");

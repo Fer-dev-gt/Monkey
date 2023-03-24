@@ -2,6 +2,8 @@ package Paneles;
 
 import Clases.Pelotitas;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 public class PanelSimulacion extends javax.swing.JPanel {
@@ -11,10 +13,7 @@ public class PanelSimulacion extends javax.swing.JPanel {
     public PanelSimulacion() {
         initComponents();
         // Creo las 30 pelotitas
-        for (int i = 0; i < 30; i++) {
-            crearPelotitas();
-            
-        }
+        
     }
     
     public void iniciarSimulacion(){
@@ -32,10 +31,12 @@ public class PanelSimulacion extends javax.swing.JPanel {
     }
     
     public void crearPelotitas(){
-        this.bolita = new Pelotitas(Color.GREEN, 770, 350,5);
-        Pelotitas hiloBolita = new Pelotitas(Color.GREEN, 770, 350,5);
-        hiloBolita.start();
-        this.add(this.bolita.getBolita());
+        for (int i = 0; i < 30; i++) {
+            this.bolita = new Pelotitas(Color.GREEN, (770+i*2), 350,5);
+            this.add(this.bolita.getBolita());
+            System.out.println("Se creo pelotita #" + (i+1));
+            iniciarSimulacion();
+        }
     }
 
     @SuppressWarnings("unchecked")
