@@ -1,6 +1,5 @@
 package Paneles;
 
-import Clases.Animacion;
 import Clases.Pelotitas;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -16,7 +15,6 @@ public class MenuInicial extends javax.swing.JFrame {
     private int costoEmpaquetado;
     private int costoSalida;
     
-    Pelotitas bolita1;
     PanelSimulacion panelSimulacion = new PanelSimulacion();
     
     
@@ -137,7 +135,7 @@ public class MenuInicial extends javax.swing.JFrame {
             costoSalida = Integer.parseInt(costoSalidatxt.getText());*/
             cambiarPanel(panelSimulacion);
             panelSimulacion.coordenadasPaneles();
-            
+            panelSimulacion.iniciarSimulacion();
             //Animacion panel = new Animacion(30);
             //panel.start();
             

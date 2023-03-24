@@ -38,7 +38,7 @@ public class Pelotitas extends Thread {
             } else if (this.bolita.getX() <= this.posicionX) {
                 for (int i = this.bolita.getX(); i <= this.posicionX; i++) {
                     this.bolita.setLocation(i, this.bolita.getY());
-                    Thread.sleep(5);
+                    Thread.sleep(1);
                 }
             }
             
@@ -46,12 +46,12 @@ public class Pelotitas extends Thread {
             if (this.bolita.getY() > this.posicionY) {
                 for (int i = this.bolita.getY(); i > this.posicionY; i--) {
                     this.bolita.setLocation(this.bolita.getX(), i);
-                    Thread.sleep(5);
+                    Thread.sleep(1);
                 }
             } else if (this.bolita.getY() <= this.posicionY) {
                 for (int i = this.bolita.getY(); i <= this.posicionY; i++) {
                     this.bolita.setLocation(this.bolita.getX(), i);
-                    Thread.sleep(5);
+                    Thread.sleep(1);
                 }
             }
         } catch (InterruptedException e) {

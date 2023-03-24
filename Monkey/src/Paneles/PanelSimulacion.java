@@ -5,17 +5,22 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 public class PanelSimulacion extends javax.swing.JPanel {
-    Pelotitas bolita1;
+    Pelotitas bolita;
     JPanel[] estaciones;
 
     public PanelSimulacion() {
         initComponents();
         // Creo las 30 pelotitas
         for (int i = 0; i < 30; i++) {
-            this.bolita1 = new Pelotitas(Color.GREEN, 770, 350,5);
-            this.add(this.bolita1.getBolita());
-            System.out.println("Creada Pelotita #" + (i+1));
+            crearPelotitas();
+            
         }
+    }
+    
+    public void iniciarSimulacion(){
+        this.bolita.setPosicionX(this.estaciones[0].getX());
+        this.bolita.setPosicionY(this.estaciones[0].getY());
+        this.bolita.start();
     }
     
     public void coordenadasPaneles(){
@@ -24,16 +29,13 @@ public class PanelSimulacion extends javax.swing.JPanel {
         this.estaciones[1] = panelProduccion;
         this.estaciones[2] = panelEmpaquetado;
         this.estaciones[3] = panelSalida;
-        this.bolita1.setPosicionX(this.estaciones[0].getX());
-        this.bolita1.setPosicionY(this.estaciones[0].getY());
-        this.bolita1.start();
- 
     }
     
     public void crearPelotitas(){
-        this.bolita1 = new Pelotitas(Color.GREEN, 770, 350,5);
-        this.add(this.bolita1.getBolita());
-        this.bolita1.start();
+        this.bolita = new Pelotitas(Color.GREEN, 770, 350,5);
+        Pelotitas hiloBolita = new Pelotitas(Color.GREEN, 770, 350,5);
+        hiloBolita.start();
+        this.add(this.bolita.getBolita());
     }
 
     @SuppressWarnings("unchecked")
